@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DipStories</title>
-  <meta name="description" content="DipStories — photography, graphic design, landscape architecture, and research." />
-  //api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+  <title>DipStories by Dimitra Peppa</title>
+  <meta name="description" content="DipStories by Dimitra Peppa — photography, graphic design, landscape architecture, and research." />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
   <style>
     :root {
       --hero-text: #f4efe8;
@@ -57,18 +57,18 @@
 
     .name {
       margin: 0;
-      font-size: clamp(2rem, 5vw, 4.4rem);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
+      font-size: clamp(2.3rem, 6vw, 5.4rem);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
       font-weight: 500;
-      max-width: 10ch;
+      max-width: 13ch;
       color: var(--hero-text);
     }
 
     .intro {
       margin-top: 1.15rem;
-      max-width: 32rem;
-      font-size: clamp(1rem, 1.5vw, 1.1rem);
+      max-width: 34rem;
+      font-size: clamp(1rem, 1.45vw, 1.08rem);
       line-height: 1.7;
       color: var(--hero-muted);
       font-weight: 400;
@@ -118,10 +118,12 @@
 
     .menu-line a {
       border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease, opacity 0.2s ease;
     }
 
     .menu-line a:hover {
       border-bottom-color: rgba(244, 239, 232, 0.62);
+      opacity: 1;
     }
 
     .menu-line .sep {
@@ -134,11 +136,12 @@
 
     @media (max-width: 900px) {
       .name {
-        font-size: clamp(2rem, 10vw, 3.7rem);
+        font-size: clamp(2.1rem, 10vw, 4.4rem);
+        max-width: 12ch;
       }
 
       .intro {
-        max-width: 28rem;
+        max-width: 29rem;
       }
 
       .path-zone {
@@ -153,6 +156,10 @@
     @media (max-width: 640px) {
       .hero-inner {
         padding-bottom: 2.5rem;
+      }
+
+      .name {
+        max-width: 11ch;
       }
 
       .path-zone {
@@ -174,12 +181,11 @@
 <body>
   <main class="hero">
     <div class="hero-inner">
-      <h1 class="name">DipStories</h1>
+      <h1 class="name">DipStories by Dimitra Peppa</h1>
 
       <p class="intro">
-        Multidisciplinary approach to your creative needs — through photography,
-        graphic design, landscape architecture, and research shaped by atmosphere,
-        story, and stillness.
+        A multidisciplinary practice moving through photography, graphic design,
+        landscape architecture, and research — shaped by atmosphere, story, and stillness.
       </p>
 
       <div class="path-zone">
