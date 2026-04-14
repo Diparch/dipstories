@@ -8,22 +8,20 @@
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #e9e2d7;
-      --bg-deep: #ddd4c7;
-      --text-dark: #2b241e;
-      --muted-dark: #6f6458;
-      --line-dark: rgba(60, 48, 38, 0.14);
-      --hero-text: #f5f1ea;
-      --hero-muted: rgba(245, 241, 234, 0.82);
-      --link: #6d5439;
+      --bg: #e7dfd2;
+      --text-dark: #2c241d;
+      --muted-dark: #72675d;
+      --line-dark: rgba(60, 48, 38, 0.15);
+      --hero-text: #f4efe8;
+      --hero-muted: rgba(244, 239, 232, 0.82);
+      --path-bg: #dfd6c8;
+      --path-text: #4a3d31;
+      --path-soft: rgba(74, 61, 49, 0.55);
+      --path-accent: #2f241b;
     }
 
     * {
       box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
@@ -45,7 +43,7 @@
       display: flex;
       align-items: flex-end;
       background:
-        linear-gradient(to top, rgba(8, 9, 8, 0.86) 10%, rgba(8, 9, 8, 0.34) 48%, rgba(8, 9, 8, 0.10) 100%),
+        linear-gradient(to top, rgba(10, 10, 10, 0.86) 10%, rgba(10, 10, 10, 0.34) 46%, rgba(10, 10, 10, 0.10) 100%),
         url("DSC_0727.jpg") center center / cover no-repeat;
       color: var(--hero-text);
       overflow: hidden;
@@ -55,16 +53,16 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.03) 50%, rgba(0, 0, 0, 0.16));
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.03) 48%, rgba(0, 0, 0, 0.16));
       pointer-events: none;
     }
 
     .hero-inner {
       position: relative;
       z-index: 1;
-      width: min(1100px, 90%);
+      width: min(1080px, 90%);
       margin: 0 auto;
-      padding: 0 0 4.5rem;
+      padding: 0 0 4.2rem;
     }
 
     .eyebrow {
@@ -86,83 +84,70 @@
     }
 
     .hero-text {
-      margin-top: 1.3rem;
+      margin-top: 1.25rem;
       max-width: 33rem;
-      font-size: 1.05rem;
+      font-size: 1.04rem;
       color: var(--hero-muted);
       font-weight: 400;
     }
 
-    .path-wrap {
-      background: linear-gradient(to bottom, var(--bg-deep), var(--bg));
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    .path-strip {
+      background: var(--path-bg);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid var(--line-dark);
     }
 
     .path-inner {
-      width: min(1100px, 90%);
+      width: min(1080px, 90%);
       margin: 0 auto;
-      padding: 2.2rem 0 3.2rem;
+      padding: 1.1rem 0 1.25rem;
     }
 
-    .path-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted-dark);
-      margin-bottom: 0.9rem;
-    }
-
-    .path-nav {
+    .path-line {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 0.65rem;
-      font-size: clamp(1rem, 1.8vw, 1.35rem);
-      color: var(--text-dark);
-      line-height: 1.4;
+      gap: 0.35rem;
+      color: var(--path-text);
+      font-size: clamp(0.95rem, 1.6vw, 1.08rem);
+      line-height: 1.7;
     }
 
-    .path-nav a {
-      position: relative;
-      color: var(--text-dark);
-      opacity: 0.95;
+    .path-line a {
+      white-space: nowrap;
     }
 
-    .path-nav a:hover {
-      opacity: 1;
+    .path-line a:hover {
       text-decoration: underline;
-      text-underline-offset: 0.18em;
+      text-underline-offset: 0.15em;
     }
 
-    .divider {
-      color: rgba(60, 48, 38, 0.45);
-      transform: translateY(-1px);
+    .path-sep {
+      color: var(--path-soft);
     }
 
-    .path-note {
-      margin-top: 1.2rem;
-      max-width: 38rem;
-      color: var(--muted-dark);
-      font-size: 0.98rem;
+    .path-cta {
+      font-weight: 500;
+      color: var(--path-accent);
     }
 
-    .home-intro {
-      width: min(1100px, 90%);
+    .home-note {
+      width: min(1080px, 90%);
       margin: 0 auto;
-      padding: 0 0 5rem;
+      padding: 2rem 0 4rem;
     }
 
-    .home-intro p {
-      max-width: 44rem;
+    .home-note p {
       margin: 0;
+      max-width: 42rem;
       color: var(--muted-dark);
-      font-size: 1.06rem;
+      font-size: 1rem;
     }
 
     footer {
-      width: min(1100px, 90%);
+      width: min(1080px, 90%);
       margin: 0 auto;
-      padding: 2rem 0 4rem;
+      padding: 1.25rem 0 3rem;
       color: var(--muted-dark);
       font-size: 0.92rem;
       border-top: 1px solid var(--line-dark);
@@ -174,7 +159,7 @@
       }
 
       h1 {
-        font-size: clamp(2.5rem, 12vw, 4.3rem);
+        font-size: clamp(2.5rem, 12vw, 4.4rem);
       }
 
       .hero-text {
@@ -183,16 +168,16 @@
       }
 
       .path-inner {
-        padding: 1.8rem 0 2.4rem;
+        padding: 1rem 0 1.1rem;
       }
 
-      .path-nav {
-        font-size: 1rem;
-        gap: 0.45rem;
+      .path-line {
+        font-size: 0.95rem;
+        line-height: 1.9;
       }
 
-      .home-intro {
-        padding-bottom: 4rem;
+      .home-note {
+        padding: 1.6rem 0 3.2rem;
       }
     }
   </style>
@@ -208,28 +193,23 @@
     </div>
   </header>
 
-  <section class="path-wrap" aria-label="Main navigation">
+  <section class="path-strip" aria-label="Main navigation">
     <div class="path-inner">
-      <div class="path-label">Enter</div>
-      <nav class="path-nav">
+      <nav class="path-line">
         <a href="about.html">About</a>
-        <span class="divider">/</span>
+        <span class="path-sep">|</span>
         <a href="services.html">Services</a>
-        <span class="divider">/</span>
+        <span class="path-sep">|</span>
         <a href="work.html">Selected Work</a>
-        <span class="divider">/</span>
-        <a href="contact.html">Contact</a>
+        <span class="path-sep">→</span>
+        <a class="path-cta" href="contact.html">Write to me</a>
       </nav>
-      <p class="path-note">
-        A quieter way into the work — moving between image, space, visual communication, and reflection.
-      </p>
     </div>
   </section>
 
-  <main class="home-intro">
+  <main class="home-note">
     <p>
-      DipStories is a personal and multidisciplinary practice. The site is intended less as a polished showcase
-      and more as a cinematic entry point into a body of work shaped by observation, atmosphere, research, and place.
+      A personal practice moving between image, place, visual language, and research.
     </p>
   </main>
 
