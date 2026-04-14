@@ -15,9 +15,8 @@
       --hero-text: #f4efe8;
       --hero-muted: rgba(244, 239, 232, 0.82);
       --path-bg: #dfd6c8;
-      --path-text: #4a3d31;
-      --path-soft: rgba(74, 61, 49, 0.55);
-      --path-accent: #2f241b;
+      --path-text: #493c31;
+      --path-stroke: rgba(73, 60, 49, 0.28);
     }
 
     * {
@@ -30,11 +29,6 @@
       background: var(--bg);
       color: var(--text-dark);
       line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
     }
 
     .hero {
@@ -91,44 +85,62 @@
       font-weight: 400;
     }
 
-    .path-strip {
-      background: var(--path-bg);
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    .drawn-nav {
+      background: #ddd4c7;
+      border-top: 1px solid rgba(255,255,255,0.06);
       border-bottom: 1px solid var(--line-dark);
+      padding: 1.2rem 0 0.8rem;
     }
 
-    .path-inner {
-      width: min(1080px, 90%);
+    .drawn-nav-inner {
+      width: min(1080px, 92%);
       margin: 0 auto;
-      padding: 1.1rem 0 1.25rem;
+    }
+
+    .drawn-nav svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      overflow: visible;
     }
 
     .path-line {
+      fill: none;
+      stroke: var(--path-stroke);
+      stroke-width: 1.2;
+      stroke-linecap: round;
+      stroke-dasharray: 3 6;
+    }
+
+    .path-text {
+      fill: var(--path-text);
+      font-family: "Satoshi", Arial, sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      width: min(1080px, 90%);
+      margin: 0 auto;
+      margin-top: -0.2rem;
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      gap: 0.35rem;
-      color: var(--path-text);
-      font-size: clamp(0.95rem, 1.6vw, 1.08rem);
-      line-height: 1.7;
+      gap: 1rem;
+      justify-content: flex-start;
+      color: var(--muted-dark);
+      font-size: 0.9rem;
     }
 
-    .path-line a {
-      white-space: nowrap;
+    .nav-links a {
+      color: var(--muted-dark);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
     }
 
-    .path-line a:hover {
-      text-decoration: underline;
-      text-underline-offset: 0.15em;
-    }
-
-    .path-sep {
-      color: var(--path-soft);
-    }
-
-    .path-cta {
-      font-weight: 500;
-      color: var(--path-accent);
+    .nav-links a:hover {
+      color: var(--text-dark);
+      border-bottom-color: rgba(44, 36, 29, 0.35);
     }
 
     .home-note {
@@ -167,13 +179,12 @@
         max-width: 28rem;
       }
 
-      .path-inner {
-        padding: 1rem 0 1.1rem;
+      .path-text {
+        font-size: 16px;
       }
 
-      .path-line {
-        font-size: 0.95rem;
-        line-height: 1.9;
+      .drawn-nav {
+        padding-top: 1rem;
       }
 
       .home-note {
@@ -193,17 +204,27 @@
     </div>
   </header>
 
-  <section class="path-strip" aria-label="Main navigation">
-    <div class="path-inner">
-      <nav class="path-line">
+  <section class="drawn-nav" aria-label="Main navigation">
+    <div class="drawn-nav-inner">
+      <svg viewBox="0 0 1200 180" role="img" aria-label="Navigation path">
+        <path
+          id="menu-path"
+          class="path-line"
+          d="M 20 120 C 180 70, 280 70, 420 105 S 710 155, 900 100 S 1080 70, 1180 85"
+        />
+        <text class="path-text">
+          <textPath href="#menu-path" startOffset="2%">
+            ABOUT · SERVICES · SELECTED WORK → WRITE TO ME
+          </textPath>
+        </text>
+      </svg>
+
+      <div class="nav-links" aria-hidden="false">
         <a href="about.html">About</a>
-        <span class="path-sep">|</span>
         <a href="services.html">Services</a>
-        <span class="path-sep">|</span>
         <a href="work.html">Selected Work</a>
-        <span class="path-sep">→</span>
-        <a class="path-cta" href="contact.html">Write to me</a>
-      </nav>
+        <a href="contact.html">Write to me</a>
+      </div>
     </div>
   </section>
 
