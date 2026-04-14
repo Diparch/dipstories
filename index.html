@@ -9,20 +9,18 @@
   <style>
     :root {
       --bg: #e9e2d7;
+      --surface: rgba(255, 255, 255, 0.28);
       --text-dark: #2b241e;
       --muted-dark: #6f6458;
       --line-dark: rgba(60, 48, 38, 0.14);
       --hero-text: #f5f1ea;
       --hero-muted: rgba(245, 241, 234, 0.82);
+      --link: #6d5439;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -32,9 +30,13 @@
       line-height: 1.6;
     }
 
-    .container {
-      width: min(1080px, 90%);
-      margin: 0 auto;
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     .hero {
@@ -74,10 +76,7 @@
       font-weight: 500;
     }
 
-    h1, h2, h3 {
-      margin: 0;
-      font-weight: 500;
-    }
+    h1, h2, h3 { margin: 0; font-weight: 500; }
 
     h1 {
       max-width: 8ch;
@@ -106,7 +105,6 @@
 
     .hero-nav a {
       color: var(--hero-text);
-      text-decoration: none;
       opacity: 0.9;
       border-bottom: 1px solid rgba(245, 241, 234, 0.22);
       padding-bottom: 0.15rem;
@@ -114,94 +112,29 @@
 
     .hero-nav a:hover {
       opacity: 1;
+      text-decoration: none;
       border-bottom-color: rgba(245, 241, 234, 0.7);
     }
 
-    main {
-      background: linear-gradient(to bottom, #e3dccf 0%, var(--bg) 140px);
+    .home-intro {
+      width: min(1080px, 90%);
+      margin: 0 auto;
+      padding: 4rem 0 5rem;
     }
 
-    section {
-      padding: 4.5rem 0;
-      border-bottom: 1px solid var(--line-dark);
-      scroll-margin-top: 2rem;
-    }
-
-    .section-title {
-      font-size: 0.82rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted-dark);
-      margin-bottom: 1.5rem;
-      font-weight: 500;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .service-item {
-      padding: 0 0 1rem;
-      border-bottom: 1px solid rgba(60, 48, 38, 0.14);
-    }
-
-    .service-item h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: var(--text-dark);
-    }
-
-    .service-item p {
-      margin: 0;
-      color: var(--muted-dark);
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.2rem;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.28);
-      border: 1px solid rgba(60, 48, 38, 0.12);
-      padding: 1.6rem;
-      border-radius: 6px;
-    }
-
-    .card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.7rem;
-      color: var(--text-dark);
-      font-weight: 500;
-    }
-
-    .card p,
-    .about-text,
-    .contact-text {
+    .home-intro p {
+      max-width: 46rem;
+      font-size: 1.08rem;
       color: var(--muted-dark);
       margin: 0;
-      max-width: 42rem;
-      font-weight: 400;
-    }
-
-    a {
-      color: #6d5439;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
     }
 
     footer {
+      width: min(1080px, 90%);
+      margin: 0 auto;
       padding: 2rem 0 4rem;
       color: var(--muted-dark);
       font-size: 0.92rem;
-      font-weight: 400;
     }
 
     @media (max-width: 700px) {
@@ -222,8 +155,8 @@
         font-size: 0.85rem;
       }
 
-      section {
-        padding: 3.2rem 0;
+      .home-intro {
+        padding: 3rem 0 4rem;
       }
     }
   </style>
@@ -237,78 +170,26 @@
         Photography, graphic design, landscape architecture, and research shaped through atmosphere, story, and stillness.
       </p>
 
-      <nav class="hero-nav" aria-label="Section navigation">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#selected-work">Selected Work</a>
+      <nav class="hero-nav" aria-label="Main navigation">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Selected Work</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <div class="container">
-      <section id="about">
-        <div class="section-title">About</div>
-        <p class="about-text">
-          DipStories is a multidisciplinary creative practice rooted in careful observation,
-          atmosphere, and storytelling. The work moves between photography, writing, design,
-          landscape architecture, and research to create experiences that feel grounded,
-          evocative, and quietly memorable.
-        </p>
-      </section>
-
-      <section id="services">
-        <div class="section-title">Services</div>
-        <div class="services">
-          <div class="service-item">
-            <h3>Photography</h3>
-            <p>Images shaped with attention to mood, composition, and quiet detail.</p>
-          </div>
-          <div class="service-item">
-            <h3>Graphic Design</h3>
-            <p>Visual communication through layout, identity, and thoughtful digital presentation.</p>
-          </div>
-          <div class="service-item">
-            <h3>Landscape Architecture</h3>
-            <p>Spatial thinking rooted in atmosphere, ecology, and the experience of place.</p>
-          </div>
-          <div class="service-item">
-            <h3>Research</h3>
-            <p>Inquiry-driven work connecting design, landscape, healing environments, and narrative.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="selected-work">
-        <div class="section-title">Selected Work</div>
-        <div class="projects">
-          <div class="card">
-            <h3>Project One</h3>
-            <p>A cinematic story, visual essay, or client collaboration can live here.</p>
-          </div>
-          <div class="card">
-            <h3>Project Two</h3>
-            <p>A quieter case study, series, or written piece with a short atmospheric description.</p>
-          </div>
-          <div class="card">
-            <h3>Project Three</h3>
-            <p>A place for multidisciplinary work that moves between image, text, and design.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact">
-        <div class="section-title">Contact</div>
-        <p class="contact-text">
-          For collaborations, commissions, or inquiries, feel free to write to
-          <a href="mailto:dipeppa@outlook.com">dipeppa@outlook.com</a>.
-        </p>
-      </section>
-    </div>
+  <main class="home-intro">
+    <p>
+      DipStories is a quiet multidisciplinary practice bringing together image, space,
+      research, and visual communication. This site is a point of entry into a broader
+      body of work across photography, graphic design, landscape architecture, and
+      reflective inquiry.
+    </p>
   </main>
 
   <footer>
-    <div class="container">DipStories © 2026</div>
+    DipStories © 2026
   </footer>
 </body>
 </html>
