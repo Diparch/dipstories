@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — DipStories</title>
+  <meta name="description" content="Services by DipStories." />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #e9e2d7;
+      --text: #2b241e;
+      --muted: #6f6458;
+      --line: rgba(60, 48, 38, 0.14);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Satoshi", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .container {
+      width: min(1020px, 90%);
+      margin: 0 auto;
+    }
+    header {
+      padding: 2rem 0 3rem;
+      border-bottom: 1px solid var(--line);
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    nav a:hover, nav a.active {
+      color: var(--text);
+      text-decoration: underline;
+    }
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 0.95;
+      margin: 2.5rem 0 1rem;
+      letter-spacing: -0.04em;
+      max-width: 10ch;
+    }
+    .lead {
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+    main {
+      padding: 4rem 0 5rem;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-item {
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .service-item h2 {
+      margin: 0 0 0.6rem;
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+    .service-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+    footer {
+      padding: 1rem 0 3rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 0.92rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="work.html">Selected Work</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <h1>Services</h1>
+      <p class="lead">
+        A multidisciplinary offer across image, visual communication, landscape thinking, and research.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="services">
+        <div class="service-item">
+          <h2>Photography</h2>
+          <p>Images shaped through mood, composition, and attentive observation.</p>
+        </div>
+        <div class="service-item">
+          <h2>Graphic Design</h2>
+          <p>Visual communication through layout, identity, and digital presentation.</p>
+        </div>
+        <div class="service-item">
+          <h2>Landscape Architecture</h2>
+          <p>Spatial thinking rooted in ecology, atmosphere, and the experience of place.</p>
+        </div>
+        <div class="service-item">
+          <h2>Research</h2>
+          <p>Inquiry-driven work connecting design, landscape, healing environments, and narrative.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">DipStories © 2026</div>
+  </footer>
+</body>
+</html>
