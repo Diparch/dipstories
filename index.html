@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DipStories</title>
-  <meta name="description" content="DipStories — photography, writing, and design." />
+  <meta name="description" content="DipStories — photography, graphic design, landscape architecture, and research." />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -15,7 +15,6 @@
       --line-dark: rgba(60, 48, 38, 0.14);
       --hero-text: #f5f1ea;
       --hero-muted: rgba(245, 241, 234, 0.82);
-      --accent: #c8b28d;
     }
 
     * {
@@ -121,7 +120,29 @@
       font-weight: 500;
     }
 
-    .services,
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .service-item {
+      padding: 0 0 1rem;
+      border-bottom: 1px solid rgba(60, 48, 38, 0.14);
+    }
+
+    .service-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .service-item p {
+      margin: 0;
+      color: var(--muted-dark);
+    }
+
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -192,7 +213,7 @@
       <div class="eyebrow">DipStories</div>
       <h1>Multidisciplinary approach to your creative needs</h1>
       <p class="hero-text">
-        Photography, writing, and design shaped through atmosphere, story, and stillness.
+        Photography, graphic design, landscape architecture, and research shaped through atmosphere, story, and stillness.
       </p>
       <p class="hero-note">For brands, people, and projects that need a quieter visual language.</p>
     </div>
@@ -203,17 +224,21 @@
       <section>
         <div class="section-title">Services</div>
         <div class="services">
-          <div class="card">
+          <div class="service-item">
             <h3>Photography</h3>
-            <p>Images that observe mood, detail, and environment with sensitivity.</p>
+            <p>Images shaped with attention to mood, composition, and quiet detail.</p>
           </div>
-          <div class="card">
-            <h3>Writing</h3>
-            <p>Texts that balance clarity with feeling, from reflective pieces to brand narratives.</p>
+          <div class="service-item">
+            <h3>Graphic Design</h3>
+            <p>Visual communication through layout, identity, and thoughtful digital presentation.</p>
           </div>
-          <div class="card">
-            <h3>Design</h3>
-            <p>Visual worlds shaped with restraint, texture, rhythm, and a sense of place.</p>
+          <div class="service-item">
+            <h3>Landscape Architecture</h3>
+            <p>Spatial thinking rooted in atmosphere, ecology, and the experience of place.</p>
+          </div>
+          <div class="service-item">
+            <h3>Research</h3>
+            <p>Inquiry-driven work connecting design, landscape, healing environments, and narrative.</p>
           </div>
         </div>
       </section>
@@ -223,40 +248,4 @@
         <div class="projects">
           <div class="card">
             <h3>Project One</h3>
-            <p>A cinematic story, visual essay, or client collaboration can live here.</p>
-          </div>
-          <div class="card">
-            <h3>Project Two</h3>
-            <p>A quieter case study, series, or written piece with a short atmospheric description.</p>
-          </div>
-          <div class="card">
-            <h3>Project Three</h3>
-            <p>A place for multidisciplinary work that moves between image, text, and design.</p>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="section-title">About</div>
-        <p class="about-text">
-          DipStories is a multidisciplinary creative practice rooted in careful observation,
-          atmosphere, and storytelling. The work moves between photography, writing, and design
-          to create experiences that feel grounded, evocative, and quietly memorable.
-        </p>
-      </section>
-
-      <section>
-        <div class="section-title">Contact</div>
-        <p class="contact-text">
-          For collaborations, commissions, or inquiries, email
-          <a href="mailto:youremail@example.com">youremail@example.com</a>.
-        </p>
-      </section>
-    </div>
-  </main>
-
-  <footer>
-    <div class="container">DipStories © 2026</div>
-  </footer>
-</body>
-</html>
+            <p>A cinematic story, visual essay, 
