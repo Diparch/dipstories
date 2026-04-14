@@ -3,10 +3,207 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dipstories</title>
+  <title>DipStories</title>
+  <meta name="description" content="DipStories — photography, writing, and design." />
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --surface: #efe7db;
+      --text: #2f261f;
+      --muted: #6e6258;
+      --line: #d8ccbe;
+      --accent: #8a6a4a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(960px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 5rem 0 3rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    h1, h2, h3 {
+      font-weight: normal;
+      margin: 0 0 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1.05;
+      max-width: 8ch;
+    }
+
+    .intro {
+      max-width: 34rem;
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin-top: 1.5rem;
+    }
+
+    section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .services,
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--surface);
+      padding: 1.5rem;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .about-text,
+    .contact-text {
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 2rem 0 4rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding-top: 3.5rem;
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hei, welcome to DipStories.</h1>
-  <p>My portfolio site is coming soon.</p>
+  <header>
+    <div class="container">
+      <div class="brand">DipStories</div>
+      <h1>Multidisciplinary approach to your creative needs</h1>
+      <p class="intro">
+        A calm, thoughtful space for photography, writing, and design —
+        shaped through story, atmosphere, and detail.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <div class="section-title">Services</div>
+      <div class="services">
+        <div class="card">
+          <h3>Photography</h3>
+          <p>Visual storytelling with attention to mood, composition, and quiet detail.</p>
+        </div>
+        <div class="card">
+          <h3>Writing</h3>
+          <p>Clear and evocative words for essays, creative texts, and thoughtful communication.</p>
+        </div>
+        <div class="card">
+          <h3>Design</h3>
+          <p>Intentional visual work across layout, identity, and digital storytelling.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Selected work</div>
+      <div class="projects">
+        <div class="card">
+          <h3>Project One</h3>
+          <p>A visual or written project presented with a short, poetic description.</p>
+        </div>
+        <div class="card">
+          <h3>Project Two</h3>
+          <p>A portfolio feature that can later link to a fuller case study or post.</p>
+        </div>
+        <div class="card">
+          <h3>Project Three</h3>
+          <p>A quiet space for selected work, client collaborations, or personal stories.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">About</div>
+      <p class="about-text">
+        DipStories brings together different creative practices through a gentle,
+        multidisciplinary lens. The focus is on making work that feels clear,
+        atmospheric, and human.
+      </p>
+    </section>
+
+    <section>
+      <div class="section-title">Contact</div>
+      <p class="contact-text">
+        For collaborations, commissions, or inquiries, email
+        <a href="mailto:youremail@example.com">youremail@example.com</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      DipStories © 2026
+    </div>
+  </footer>
 </body>
 </html>
