@@ -9,7 +9,7 @@
   <style>
     :root {
       --bg: #e9e2d7;
-      --surface: rgba(255, 255, 255, 0.28);
+      --bg-deep: #ddd4c7;
       --text-dark: #2b241e;
       --muted-dark: #6f6458;
       --line-dark: rgba(60, 48, 38, 0.14);
@@ -18,9 +18,13 @@
       --link: #6d5439;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -31,12 +35,8 @@
     }
 
     a {
-      color: var(--link);
+      color: inherit;
       text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
     }
 
     .hero {
@@ -45,7 +45,7 @@
       display: flex;
       align-items: flex-end;
       background:
-        linear-gradient(to top, rgba(10, 12, 10, 0.82) 8%, rgba(10, 12, 10, 0.36) 48%, rgba(10, 12, 10, 0.16) 100%),
+        linear-gradient(to top, rgba(8, 9, 8, 0.86) 10%, rgba(8, 9, 8, 0.34) 48%, rgba(8, 9, 8, 0.10) 100%),
         url("DSC_0727.jpg") center center / cover no-repeat;
       color: var(--hero-text);
       overflow: hidden;
@@ -55,108 +55,144 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.04) 45%, rgba(0, 0, 0, 0.18));
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.03) 50%, rgba(0, 0, 0, 0.16));
       pointer-events: none;
     }
 
     .hero-inner {
       position: relative;
       z-index: 1;
-      width: min(1080px, 90%);
+      width: min(1100px, 90%);
       margin: 0 auto;
-      padding: 0 0 4rem;
+      padding: 0 0 4.5rem;
     }
 
     .eyebrow {
-      font-size: 0.82rem;
-      letter-spacing: 0.22em;
+      font-size: 0.78rem;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--hero-muted);
       margin-bottom: 1rem;
       font-weight: 500;
     }
 
-    h1, h2, h3 { margin: 0; font-weight: 500; }
-
     h1 {
+      margin: 0;
       max-width: 8ch;
-      font-size: clamp(3rem, 7vw, 6.5rem);
-      line-height: 0.92;
-      letter-spacing: -0.04em;
+      font-size: clamp(3.2rem, 7vw, 6.8rem);
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      font-weight: 500;
     }
 
     .hero-text {
-      margin-top: 1.25rem;
-      max-width: 34rem;
-      font-size: 1.08rem;
+      margin-top: 1.3rem;
+      max-width: 33rem;
+      font-size: 1.05rem;
       color: var(--hero-muted);
       font-weight: 400;
     }
 
-    .hero-nav {
-      margin-top: 2.2rem;
+    .path-wrap {
+      background: linear-gradient(to bottom, var(--bg-deep), var(--bg));
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .path-inner {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+      padding: 2.2rem 0 3.2rem;
+    }
+
+    .path-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted-dark);
+      margin-bottom: 0.9rem;
+    }
+
+    .path-nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.2rem;
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      color: var(--text-dark);
+      line-height: 1.4;
     }
 
-    .hero-nav a {
-      color: var(--hero-text);
-      opacity: 0.9;
-      border-bottom: 1px solid rgba(245, 241, 234, 0.22);
-      padding-bottom: 0.15rem;
+    .path-nav a {
+      position: relative;
+      color: var(--text-dark);
+      opacity: 0.95;
     }
 
-    .hero-nav a:hover {
+    .path-nav a:hover {
       opacity: 1;
-      text-decoration: none;
-      border-bottom-color: rgba(245, 241, 234, 0.7);
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+
+    .divider {
+      color: rgba(60, 48, 38, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .path-note {
+      margin-top: 1.2rem;
+      max-width: 38rem;
+      color: var(--muted-dark);
+      font-size: 0.98rem;
     }
 
     .home-intro {
-      width: min(1080px, 90%);
+      width: min(1100px, 90%);
       margin: 0 auto;
-      padding: 4rem 0 5rem;
+      padding: 0 0 5rem;
     }
 
     .home-intro p {
-      max-width: 46rem;
-      font-size: 1.08rem;
-      color: var(--muted-dark);
+      max-width: 44rem;
       margin: 0;
+      color: var(--muted-dark);
+      font-size: 1.06rem;
     }
 
     footer {
-      width: min(1080px, 90%);
+      width: min(1100px, 90%);
       margin: 0 auto;
       padding: 2rem 0 4rem;
       color: var(--muted-dark);
       font-size: 0.92rem;
+      border-top: 1px solid var(--line-dark);
     }
 
     @media (max-width: 700px) {
       .hero-inner {
-        padding-bottom: 2.5rem;
+        padding-bottom: 3rem;
       }
 
       h1 {
-        font-size: clamp(2.5rem, 12vw, 4rem);
+        font-size: clamp(2.5rem, 12vw, 4.3rem);
       }
 
       .hero-text {
         font-size: 1rem;
+        max-width: 28rem;
       }
 
-      .hero-nav {
-        gap: 0.9rem;
-        font-size: 0.85rem;
+      .path-inner {
+        padding: 1.8rem 0 2.4rem;
+      }
+
+      .path-nav {
+        font-size: 1rem;
+        gap: 0.45rem;
       }
 
       .home-intro {
-        padding: 3rem 0 4rem;
+        padding-bottom: 4rem;
       }
     }
   </style>
@@ -169,22 +205,31 @@
       <p class="hero-text">
         Photography, graphic design, landscape architecture, and research shaped through atmosphere, story, and stillness.
       </p>
-
-      <nav class="hero-nav" aria-label="Main navigation">
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="work.html">Selected Work</a>
-        <a href="contact.html">Contact</a>
-      </nav>
     </div>
   </header>
 
+  <section class="path-wrap" aria-label="Main navigation">
+    <div class="path-inner">
+      <div class="path-label">Enter</div>
+      <nav class="path-nav">
+        <a href="about.html">About</a>
+        <span class="divider">/</span>
+        <a href="services.html">Services</a>
+        <span class="divider">/</span>
+        <a href="work.html">Selected Work</a>
+        <span class="divider">/</span>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="path-note">
+        A quieter way into the work — moving between image, space, visual communication, and reflection.
+      </p>
+    </div>
+  </section>
+
   <main class="home-intro">
     <p>
-      DipStories is a quiet multidisciplinary practice bringing together image, space,
-      research, and visual communication. This site is a point of entry into a broader
-      body of work across photography, graphic design, landscape architecture, and
-      reflective inquiry.
+      DipStories is a personal and multidisciplinary practice. The site is intended less as a polished showcase
+      and more as a cinematic entry point into a body of work shaped by observation, atmosphere, research, and place.
     </p>
   </main>
 
