@@ -5,30 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DipStories</title>
   <meta name="description" content="DipStories — photography, graphic design, landscape architecture, and research." />
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/roughjs@4.5.2/bundled/rough.js"></script>
+  //api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #e8e0d3;
-      --paper: #ddd4c6;
-      --text: #2c241d;
-      --muted: #71665b;
-      --line: rgba(60, 48, 38, 0.18);
       --hero-text: #f4efe8;
       --hero-muted: rgba(244, 239, 232, 0.82);
-      --ink: #45382d;
+      --hero-soft: rgba(244, 239, 232, 0.58);
     }
 
     * {
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       margin: 0;
+      height: 100%;
+    }
+
+    body {
       font-family: "Satoshi", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      background: #111;
+      color: var(--hero-text);
     }
 
     a {
@@ -42,30 +39,21 @@
       display: flex;
       align-items: flex-end;
       background:
-        linear-gradient(to top, rgba(9, 9, 9, 0.86) 10%, rgba(9, 9, 9, 0.36) 46%, rgba(9, 9, 9, 0.12) 100%),
+        linear-gradient(to top, rgba(9, 9, 9, 0.88) 10%, rgba(9, 9, 9, 0.34) 46%, rgba(9, 9, 9, 0.10) 100%),
+        linear-gradient(to right, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.04) 48%, rgba(0, 0, 0, 0.16)),
         url("DSC_0727.jpg") center center / cover no-repeat;
-      color: var(--hero-text);
       overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.03) 48%, rgba(0, 0, 0, 0.17));
-      pointer-events: none;
     }
 
     .hero-inner {
       position: relative;
-      z-index: 1;
       width: min(1080px, 90%);
       margin: 0 auto;
-      padding: 0 0 4.1rem;
+      padding: 0 0 3.8rem;
     }
 
-    .eyebrow {
-      font-size: 0.76rem;
+    .name {
+      font-size: 0.78rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--hero-muted);
@@ -76,232 +64,92 @@
     h1 {
       margin: 0;
       max-width: 8ch;
-      font-size: clamp(3.1rem, 7vw, 6.7rem);
+      font-size: clamp(3.2rem, 7vw, 6.8rem);
       line-height: 0.9;
       letter-spacing: -0.05em;
       font-weight: 500;
     }
 
-    .hero-text {
+    .intro {
       margin-top: 1.2rem;
-      max-width: 33rem;
-      font-size: 1.03rem;
+      max-width: 34rem;
+      font-size: 1.04rem;
+      line-height: 1.65;
       color: var(--hero-muted);
       font-weight: 400;
     }
 
-    .drawn-path {
-      background: var(--paper);
-      border-bottom: 1px solid var(--line);
-      padding: 1.3rem 0 1.8rem;
-    }
-
-    .drawn-inner {
-      width: min(1080px, 92%);
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .drawn-label {
-      color: var(--muted);
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
-    }
-
-    .path-canvas {
-      width: 100%;
-      height: 90px;
-      display: block;
-    }
-
-    .path-links {
-      margin-top: -3.2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      align-items: center;
-      color: var(--ink);
-      font-size: clamp(0.98rem, 1.7vw, 1.12rem);
-      line-height: 1.8;
-      padding-left: 0.25rem;
-    }
-
-    .path-links a {
-      display: inline-block;
-      transform: rotate(-1.2deg);
-      padding: 0 0.15rem;
-    }
-
-    .path-links a:nth-child(3) {
-      transform: rotate(0.7deg);
-    }
-
-    .path-links a:nth-child(5) {
-      transform: rotate(-0.6deg);
-    }
-
-    .path-links a:nth-child(7) {
-      transform: rotate(1deg);
-    }
-
-    .path-links a:hover {
-      text-decoration: underline;
-      text-underline-offset: 0.18em;
-    }
-
-    .sep {
-      color: rgba(69, 56, 45, 0.5);
-      transform: translateY(-1px);
-    }
-
-    .cta {
-      font-weight: 500;
-    }
-
-    .home-note {
-      width: min(1080px, 90%);
-      margin: 0 auto;
-      padding: 1.8rem 0 4rem;
-    }
-
-    .home-note p {
-      margin: 0;
+    .hero-menu {
+      margin-top: 2rem;
       max-width: 42rem;
-      color: var(--muted);
       font-size: 1rem;
+      line-height: 1.8;
+      color: var(--hero-text);
     }
 
-    footer {
-      width: min(1080px, 90%);
-      margin: 0 auto;
-      padding: 1.2rem 0 3rem;
-      color: var(--muted);
-      font-size: 0.92rem;
-      border-top: 1px solid var(--line);
+    .hero-menu a {
+      color: var(--hero-text);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .hero-menu a:hover {
+      border-bottom-color: rgba(244, 239, 232, 0.65);
+      opacity: 1;
+    }
+
+    .hero-menu .sep {
+      color: var(--hero-soft);
+      margin: 0 0.45rem;
     }
 
     @media (max-width: 700px) {
       .hero-inner {
-        padding-bottom: 3rem;
+        padding-bottom: 2.6rem;
       }
 
       h1 {
-        font-size: clamp(2.5rem, 12vw, 4.3rem);
+        font-size: clamp(2.5rem, 12vw, 4.4rem);
       }
 
-      .hero-text {
-        font-size: 1rem;
+      .intro {
         max-width: 28rem;
+        font-size: 1rem;
       }
 
-      .drawn-path {
-        padding: 1.1rem 0 1.5rem;
-      }
-
-      .path-canvas {
-        height: 72px;
-      }
-
-      .path-links {
-        margin-top: -2.5rem;
+      .hero-menu {
         font-size: 0.96rem;
         line-height: 1.9;
       }
 
-      .home-note {
-        padding: 1.5rem 0 3.1rem;
+      .hero-menu .sep {
+        margin: 0 0.28rem;
       }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
+  <main class="hero">
     <div class="hero-inner">
-      <div class="eyebrow">DipStories</div>
+      <div class="name">DipStories</div>
+
       <h1>Multidisciplinary approach to your creative needs</h1>
-      <p class="hero-text">
-        Photography, graphic design, landscape architecture, and research shaped through atmosphere, story, and stillness.
+
+      <p class="intro">
+        Photography, graphic design, landscape architecture, and research shaped through
+        atmosphere, story, and stillness.
       </p>
-    </div>
-  </header>
 
-  <section class="drawn-path" aria-label="Main navigation">
-    <div class="drawn-inner">
-      <div class="drawn-label">Path</div>
-      <svg class="path-canvas" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
-        <g id="rough-layer"></g>
-      </svg>
-
-      <nav class="path-links">
-        <a href="about.html">about</a>
+      <nav class="hero-menu" aria-label="Main navigation">
+        <a href="about.html">About</a>
         <span class="sep">|</span>
-        <a href="services.html">services</a>
+        <a href="services.html">Services</a>
         <span class="sep">|</span>
-        <a href="work.html">selected work</a>
+        <a href="work.html">Selected Work</a>
         <span class="sep">→</span>
-        <a class="cta" href="contact.html">write to me</a>
+        <a href="contact.html">Write to me</a>
       </nav>
     </div>
-  </section>
-
-  <main class="home-note">
-    <p>
-      A more personal entry into the work — less portfolio, more trace of image, place, and thought.
-    </p>
   </main>
-
-  <footer>
-    DipStories © 2026
-  </footer>
-
-  <script>
-    const rc = rough.svg(document.querySelector(".path-canvas"));
-    const layer = document.getElementById("rough-layer");
-
-    const line1 = rc.curve(
-      [
-        [20, 54],
-        [180, 42],
-        [330, 58],
-        [500, 40],
-        [690, 55],
-        [880, 46],
-        [1080, 57],
-        [1180, 49]
-      ],
-      {
-        stroke: "rgba(69, 56, 45, 0.34)",
-        strokeWidth: 1.4,
-        roughness: 2.1,
-        bowing: 2.4,
-        fill: "none"
-      }
-    );
-
-    const line2 = rc.curve(
-      [
-        [24, 58],
-        [170, 48],
-        [338, 62],
-        [510, 44],
-        [700, 58],
-        [892, 51],
-        [1090, 62],
-        [1174, 54]
-      ],
-      {
-        stroke: "rgba(69, 56, 45, 0.16)",
-        strokeWidth: 1,
-        roughness: 2.8,
-        bowing: 3.2,
-        fill: "none"
-      }
-    );
-
-    layer.appendChild(line1);
-    layer.appendChild(line2);
-  </script>
 </body>
 </html>
