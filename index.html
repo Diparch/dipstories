@@ -6,17 +6,17 @@
   <title>DipStories</title>
   <meta name="description" content="DipStories — photography, graphic design, landscape architecture, and research." />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/roughjs@4.5.2/bundled/rough.js"></script>
   <style>
     :root {
-      --bg: #e7dfd2;
-      --text-dark: #2c241d;
-      --muted-dark: #72675d;
-      --line-dark: rgba(60, 48, 38, 0.15);
+      --bg: #e8e0d3;
+      --paper: #ddd4c6;
+      --text: #2c241d;
+      --muted: #71665b;
+      --line: rgba(60, 48, 38, 0.18);
       --hero-text: #f4efe8;
       --hero-muted: rgba(244, 239, 232, 0.82);
-      --path-bg: #dfd6c8;
-      --path-text: #493c31;
-      --path-stroke: rgba(73, 60, 49, 0.28);
+      --ink: #45382d;
     }
 
     * {
@@ -27,8 +27,13 @@
       margin: 0;
       font-family: "Satoshi", Arial, sans-serif;
       background: var(--bg);
-      color: var(--text-dark);
+      color: var(--text);
       line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .hero {
@@ -37,7 +42,7 @@
       display: flex;
       align-items: flex-end;
       background:
-        linear-gradient(to top, rgba(10, 10, 10, 0.86) 10%, rgba(10, 10, 10, 0.34) 46%, rgba(10, 10, 10, 0.10) 100%),
+        linear-gradient(to top, rgba(9, 9, 9, 0.86) 10%, rgba(9, 9, 9, 0.36) 46%, rgba(9, 9, 9, 0.12) 100%),
         url("DSC_0727.jpg") center center / cover no-repeat;
       color: var(--hero-text);
       overflow: hidden;
@@ -47,7 +52,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.03) 48%, rgba(0, 0, 0, 0.16));
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.03) 48%, rgba(0, 0, 0, 0.17));
       pointer-events: none;
     }
 
@@ -56,11 +61,11 @@
       z-index: 1;
       width: min(1080px, 90%);
       margin: 0 auto;
-      padding: 0 0 4.2rem;
+      padding: 0 0 4.1rem;
     }
 
     .eyebrow {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--hero-muted);
@@ -71,98 +76,110 @@
     h1 {
       margin: 0;
       max-width: 8ch;
-      font-size: clamp(3.2rem, 7vw, 6.8rem);
+      font-size: clamp(3.1rem, 7vw, 6.7rem);
       line-height: 0.9;
       letter-spacing: -0.05em;
       font-weight: 500;
     }
 
     .hero-text {
-      margin-top: 1.25rem;
+      margin-top: 1.2rem;
       max-width: 33rem;
-      font-size: 1.04rem;
+      font-size: 1.03rem;
       color: var(--hero-muted);
       font-weight: 400;
     }
 
-    .drawn-nav {
-      background: #ddd4c7;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid var(--line-dark);
-      padding: 1.2rem 0 0.8rem;
+    .drawn-path {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: 1.3rem 0 1.8rem;
     }
 
-    .drawn-nav-inner {
+    .drawn-inner {
       width: min(1080px, 92%);
       margin: 0 auto;
+      position: relative;
     }
 
-    .drawn-nav svg {
+    .drawn-label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .path-canvas {
       width: 100%;
-      height: auto;
+      height: 90px;
       display: block;
-      overflow: visible;
     }
 
-    .path-line {
-      fill: none;
-      stroke: var(--path-stroke);
-      stroke-width: 1.2;
-      stroke-linecap: round;
-      stroke-dasharray: 3 6;
-    }
-
-    .path-text {
-      fill: var(--path-text);
-      font-family: "Satoshi", Arial, sans-serif;
-      font-size: 20px;
-      font-weight: 400;
-      letter-spacing: 0.02em;
-    }
-
-    .nav-links {
-      width: min(1080px, 90%);
-      margin: 0 auto;
-      margin-top: -0.2rem;
+    .path-links {
+      margin-top: -3.2rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: flex-start;
-      color: var(--muted-dark);
-      font-size: 0.9rem;
+      gap: 0.45rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: clamp(0.98rem, 1.7vw, 1.12rem);
+      line-height: 1.8;
+      padding-left: 0.25rem;
     }
 
-    .nav-links a {
-      color: var(--muted-dark);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
+    .path-links a {
+      display: inline-block;
+      transform: rotate(-1.2deg);
+      padding: 0 0.15rem;
     }
 
-    .nav-links a:hover {
-      color: var(--text-dark);
-      border-bottom-color: rgba(44, 36, 29, 0.35);
+    .path-links a:nth-child(3) {
+      transform: rotate(0.7deg);
+    }
+
+    .path-links a:nth-child(5) {
+      transform: rotate(-0.6deg);
+    }
+
+    .path-links a:nth-child(7) {
+      transform: rotate(1deg);
+    }
+
+    .path-links a:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+
+    .sep {
+      color: rgba(69, 56, 45, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .cta {
+      font-weight: 500;
     }
 
     .home-note {
       width: min(1080px, 90%);
       margin: 0 auto;
-      padding: 2rem 0 4rem;
+      padding: 1.8rem 0 4rem;
     }
 
     .home-note p {
       margin: 0;
       max-width: 42rem;
-      color: var(--muted-dark);
+      color: var(--muted);
       font-size: 1rem;
     }
 
     footer {
       width: min(1080px, 90%);
       margin: 0 auto;
-      padding: 1.25rem 0 3rem;
-      color: var(--muted-dark);
+      padding: 1.2rem 0 3rem;
+      color: var(--muted);
       font-size: 0.92rem;
-      border-top: 1px solid var(--line-dark);
+      border-top: 1px solid var(--line);
     }
 
     @media (max-width: 700px) {
@@ -171,7 +188,7 @@
       }
 
       h1 {
-        font-size: clamp(2.5rem, 12vw, 4.4rem);
+        font-size: clamp(2.5rem, 12vw, 4.3rem);
       }
 
       .hero-text {
@@ -179,16 +196,22 @@
         max-width: 28rem;
       }
 
-      .path-text {
-        font-size: 16px;
+      .drawn-path {
+        padding: 1.1rem 0 1.5rem;
       }
 
-      .drawn-nav {
-        padding-top: 1rem;
+      .path-canvas {
+        height: 72px;
+      }
+
+      .path-links {
+        margin-top: -2.5rem;
+        font-size: 0.96rem;
+        line-height: 1.9;
       }
 
       .home-note {
-        padding: 1.6rem 0 3.2rem;
+        padding: 1.5rem 0 3.1rem;
       }
     }
   </style>
@@ -204,38 +227,81 @@
     </div>
   </header>
 
-  <section class="drawn-nav" aria-label="Main navigation">
-    <div class="drawn-nav-inner">
-      <svg viewBox="0 0 1200 180" role="img" aria-label="Navigation path">
-        <path
-          id="menu-path"
-          class="path-line"
-          d="M 20 120 C 180 70, 280 70, 420 105 S 710 155, 900 100 S 1080 70, 1180 85"
-        />
-        <text class="path-text">
-          <textPath href="#menu-path" startOffset="2%">
-            ABOUT · SERVICES · SELECTED WORK → WRITE TO ME
-          </textPath>
-        </text>
+  <section class="drawn-path" aria-label="Main navigation">
+    <div class="drawn-inner">
+      <div class="drawn-label">Path</div>
+      <svg class="path-canvas" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
+        <g id="rough-layer"></g>
       </svg>
 
-      <div class="nav-links" aria-hidden="false">
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="work.html">Selected Work</a>
-        <a href="contact.html">Write to me</a>
-      </div>
+      <nav class="path-links">
+        <a href="about.html">about</a>
+        <span class="sep">|</span>
+        <a href="services.html">services</a>
+        <span class="sep">|</span>
+        <a href="work.html">selected work</a>
+        <span class="sep">→</span>
+        <a class="cta" href="contact.html">write to me</a>
+      </nav>
     </div>
   </section>
 
   <main class="home-note">
     <p>
-      A personal practice moving between image, place, visual language, and research.
+      A more personal entry into the work — less portfolio, more trace of image, place, and thought.
     </p>
   </main>
 
   <footer>
     DipStories © 2026
   </footer>
+
+  <script>
+    const rc = rough.svg(document.querySelector(".path-canvas"));
+    const layer = document.getElementById("rough-layer");
+
+    const line1 = rc.curve(
+      [
+        [20, 54],
+        [180, 42],
+        [330, 58],
+        [500, 40],
+        [690, 55],
+        [880, 46],
+        [1080, 57],
+        [1180, 49]
+      ],
+      {
+        stroke: "rgba(69, 56, 45, 0.34)",
+        strokeWidth: 1.4,
+        roughness: 2.1,
+        bowing: 2.4,
+        fill: "none"
+      }
+    );
+
+    const line2 = rc.curve(
+      [
+        [24, 58],
+        [170, 48],
+        [338, 62],
+        [510, 44],
+        [700, 58],
+        [892, 51],
+        [1090, 62],
+        [1174, 54]
+      ],
+      {
+        stroke: "rgba(69, 56, 45, 0.16)",
+        strokeWidth: 1,
+        roughness: 2.8,
+        bowing: 3.2,
+        fill: "none"
+      }
+    );
+
+    layer.appendChild(line1);
+    layer.appendChild(line2);
+  </script>
 </body>
 </html>
