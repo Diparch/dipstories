@@ -7,12 +7,15 @@
   <meta name="description" content="DipStories — photography, writing, and design." />
   <style>
     :root {
-      --bg: #f4efe6;
-      --surface: #efe7db;
-      --text: #2f261f;
-      --muted: #6e6258;
-      --line: #d8ccbe;
-      --accent: #8a6a4a;
+      --bg: #eee7dc;
+      --surface: rgba(239, 231, 219, 0.88);
+      --text: #f8f4ee;
+      --text-dark: #2f261f;
+      --muted: #d8d1c7;
+      --muted-dark: #6e6258;
+      --line: rgba(255, 255, 255, 0.16);
+      --line-dark: #d8ccbe;
+      --accent: #d8c29d;
     }
 
     * {
@@ -23,7 +26,7 @@
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
       background: var(--bg);
-      color: var(--text);
+      color: var(--text-dark);
       line-height: 1.6;
     }
 
@@ -32,14 +35,30 @@
       margin: 0 auto;
     }
 
-    header {
-      padding: 5rem 0 3rem;
-      border-bottom: 1px solid var(--line);
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: end;
+      background:
+        linear-gradient(rgba(20, 24, 18, 0.35), rgba(20, 24, 18, 0.58)),
+        url("DSC_0727.jpg") center center / cover no-repeat;
+      color: var(--text);
+      padding: 5rem 0 4rem;
+    }
+
+    .hero-panel {
+      max-width: 760px;
+      background: rgba(24, 28, 22, 0.28);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      padding: 2rem;
+      border: 1px solid var(--line);
+      border-radius: 22px;
     }
 
     .brand {
       font-size: 0.9rem;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 1.5rem;
@@ -51,28 +70,32 @@
     }
 
     h1 {
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      line-height: 1.05;
-      max-width: 8ch;
+      font-size: clamp(2.7rem, 6vw, 5.2rem);
+      line-height: 1.02;
+      max-width: 9ch;
     }
 
     .intro {
       max-width: 34rem;
       font-size: 1.15rem;
-      color: var(--muted);
-      margin-top: 1.5rem;
+      color: #f1ece3;
+      margin-top: 1.25rem;
+    }
+
+    main {
+      background: var(--bg);
     }
 
     section {
       padding: 4rem 0;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid var(--line-dark);
     }
 
     .section-title {
       font-size: 0.9rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--muted-dark);
       margin-bottom: 1.5rem;
     }
 
@@ -86,29 +109,30 @@
     .card {
       background: var(--surface);
       padding: 1.5rem;
-      border: 1px solid var(--line);
+      border: 1px solid var(--line-dark);
       border-radius: 18px;
     }
 
     .card h3 {
       font-size: 1.3rem;
       margin-bottom: 0.75rem;
+      color: var(--text-dark);
     }
 
     .card p {
       margin: 0;
-      color: var(--muted);
+      color: var(--muted-dark);
     }
 
     .about-text,
     .contact-text {
       max-width: 42rem;
-      color: var(--muted);
+      color: var(--muted-dark);
       font-size: 1.05rem;
     }
 
     a {
-      color: var(--accent);
+      color: #7b5f3f;
       text-decoration: none;
     }
 
@@ -118,13 +142,20 @@
 
     footer {
       padding: 2rem 0 4rem;
-      color: var(--muted);
+      color: var(--muted-dark);
       font-size: 0.95rem;
     }
 
     @media (max-width: 640px) {
-      header {
-        padding-top: 3.5rem;
+      .hero {
+        min-height: 82vh;
+        padding: 2rem 0 2.5rem;
+        align-items: end;
+      }
+
+      .hero-panel {
+        padding: 1.25rem;
+        border-radius: 18px;
       }
 
       section {
@@ -134,14 +165,16 @@
   </style>
 </head>
 <body>
-  <header>
+  <header class="hero">
     <div class="container">
-      <div class="brand">DipStories</div>
-      <h1>Multidisciplinary approach to your creative needs</h1>
-      <p class="intro">
-        A calm, thoughtful space for photography, writing, and design —
-        shaped through story, atmosphere, and detail.
-      </p>
+      <div class="hero-panel">
+        <div class="brand">DipStories</div>
+        <h1>Multidisciplinary approach to your creative needs</h1>
+        <p class="intro">
+          A calm, thoughtful space for photography, writing, and design —
+          shaped through story, atmosphere, and detail.
+        </p>
+      </div>
     </div>
   </header>
 
