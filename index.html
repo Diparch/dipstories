@@ -9,7 +9,6 @@
   <style>
     :root {
       --bg: #e9e2d7;
-      --surface: #f3ede4;
       --text-dark: #2b241e;
       --muted-dark: #6f6458;
       --line-dark: rgba(60, 48, 38, 0.14);
@@ -95,11 +94,27 @@
       font-weight: 400;
     }
 
-    .hero-note {
-      margin-top: 2rem;
+    .hero-nav {
+      margin-top: 2.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
       font-size: 0.95rem;
-      color: rgba(245, 241, 234, 0.68);
-      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-nav a {
+      color: var(--hero-text);
+      text-decoration: none;
+      opacity: 0.9;
+      border-bottom: 1px solid rgba(245, 241, 234, 0.22);
+      padding-bottom: 0.15rem;
+    }
+
+    .hero-nav a:hover {
+      opacity: 1;
+      border-bottom-color: rgba(245, 241, 234, 0.7);
     }
 
     main {
@@ -109,6 +124,7 @@
     section {
       padding: 4.5rem 0;
       border-bottom: 1px solid var(--line-dark);
+      scroll-margin-top: 2rem;
     }
 
     .section-title {
@@ -201,6 +217,11 @@
         font-size: 1rem;
       }
 
+      .hero-nav {
+        gap: 0.9rem;
+        font-size: 0.85rem;
+      }
+
       section {
         padding: 3.2rem 0;
       }
@@ -215,13 +236,28 @@
       <p class="hero-text">
         Photography, graphic design, landscape architecture, and research shaped through atmosphere, story, and stillness.
       </p>
-      <p class="hero-note">For brands, people, and projects that need a quieter visual language.</p>
+
+      <nav class="hero-nav" aria-label="Section navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#selected-work">Selected Work</a>
+      </nav>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <section>
+      <section id="about">
+        <div class="section-title">About</div>
+        <p class="about-text">
+          DipStories is a multidisciplinary creative practice rooted in careful observation,
+          atmosphere, and storytelling. The work moves between photography, writing, design,
+          landscape architecture, and research to create experiences that feel grounded,
+          evocative, and quietly memorable.
+        </p>
+      </section>
+
+      <section id="services">
         <div class="section-title">Services</div>
         <div class="services">
           <div class="service-item">
@@ -243,8 +279,8 @@
         </div>
       </section>
 
-      <section>
-        <div class="section-title">Selected work</div>
+      <section id="selected-work">
+        <div class="section-title">Selected Work</div>
         <div class="projects">
           <div class="card">
             <h3>Project One</h3>
@@ -261,17 +297,7 @@
         </div>
       </section>
 
-      <section>
-        <div class="section-title">About</div>
-        <p class="about-text">
-          DipStories is a multidisciplinary creative practice rooted in careful observation,
-          atmosphere, and storytelling. The work moves between photography, writing, design,
-          landscape architecture, and research to create experiences that feel grounded,
-          evocative, and quietly memorable.
-        </p>
-      </section>
-
-      <section>
+      <section id="contact">
         <div class="section-title">Contact</div>
         <p class="contact-text">
           For collaborations, commissions, or inquiries, feel free to write to
