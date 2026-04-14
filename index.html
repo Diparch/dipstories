@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DipStories</title>
   <meta name="description" content="DipStories — photography, graphic design, landscape architecture, and research." />
-  //api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
   <style>
     :root {
       --hero-text: #f4efe8;
       --hero-muted: rgba(244, 239, 232, 0.82);
-      --hero-soft: rgba(244, 239, 232, 0.58);
+      --hero-soft: rgba(244, 239, 232, 0.62);
     }
 
     * {
@@ -19,7 +19,7 @@
 
     html, body {
       margin: 0;
-      height: 100%;
+      min-height: 100%;
     }
 
     body {
@@ -34,96 +34,128 @@
     }
 
     .hero {
-      position: relative;
       min-height: 100vh;
+      position: relative;
       display: flex;
       align-items: flex-end;
       background:
-        linear-gradient(to top, rgba(9, 9, 9, 0.88) 10%, rgba(9, 9, 9, 0.34) 46%, rgba(9, 9, 9, 0.10) 100%),
-        linear-gradient(to right, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.04) 48%, rgba(0, 0, 0, 0.16)),
+        linear-gradient(to top, rgba(8, 8, 8, 0.88) 8%, rgba(8, 8, 8, 0.32) 44%, rgba(8, 8, 8, 0.10) 100%),
+        linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.04) 50%, rgba(0, 0, 0, 0.16)),
         url("DSC_0727.jpg") center center / cover no-repeat;
-      overflow: hidden;
     }
 
     .hero-inner {
-      position: relative;
-      width: min(1080px, 90%);
+      width: min(1100px, 90%);
       margin: 0 auto;
-      padding: 0 0 3.8rem;
+      padding: 0 0 3.5rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+    }
+
+    .left {
+      max-width: 40rem;
     }
 
     .name {
       font-size: 0.78rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--hero-muted);
+      color: var(--hero-soft);
       margin-bottom: 1rem;
       font-weight: 500;
     }
 
     h1 {
       margin: 0;
-      max-width: 8ch;
-      font-size: clamp(3.2rem, 7vw, 6.8rem);
-      line-height: 0.9;
+      font-size: clamp(3rem, 6.5vw, 6.2rem);
+      line-height: 0.92;
       letter-spacing: -0.05em;
       font-weight: 500;
+      max-width: 8ch;
     }
 
     .intro {
-      margin-top: 1.2rem;
-      max-width: 34rem;
-      font-size: 1.04rem;
-      line-height: 1.65;
+      margin-top: 1.25rem;
+      max-width: 31rem;
+      font-size: 1.02rem;
+      line-height: 1.7;
       color: var(--hero-muted);
       font-weight: 400;
     }
 
-    .hero-menu {
-      margin-top: 2rem;
-      max-width: 42rem;
-      font-size: 1rem;
-      line-height: 1.8;
-      color: var(--hero-text);
+    .right {
+      justify-self: end;
+      width: min(100%, 320px);
+      padding-bottom: 0.25rem;
     }
 
-    .hero-menu a {
-      color: var(--hero-text);
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s ease, opacity 0.2s ease;
-    }
-
-    .hero-menu a:hover {
-      border-bottom-color: rgba(244, 239, 232, 0.65);
-      opacity: 1;
-    }
-
-    .hero-menu .sep {
+    .menu-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       color: var(--hero-soft);
-      margin: 0 0.45rem;
+      margin-bottom: 1rem;
     }
 
-    @media (max-width: 700px) {
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .menu a {
+      width: fit-content;
+      color: var(--hero-text);
+      font-size: 1rem;
+      line-height: 1.5;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .menu a:hover {
+      border-bottom-color: rgba(244, 239, 232, 0.6);
+      transform: translateX(4px);
+    }
+
+    .menu a span {
+      color: var(--hero-soft);
+      margin-right: 0.6rem;
+    }
+
+    @media (max-width: 900px) {
       .hero-inner {
-        padding-bottom: 2.6rem;
+        grid-template-columns: 1fr;
+        gap: 2.2rem;
+      }
+
+      .right {
+        justify-self: start;
+        width: 100%;
       }
 
       h1 {
-        font-size: clamp(2.5rem, 12vw, 4.4rem);
+        font-size: clamp(2.5rem, 11vw, 4.6rem);
       }
 
       .intro {
         max-width: 28rem;
         font-size: 1rem;
       }
+    }
 
-      .hero-menu {
-        font-size: 0.96rem;
-        line-height: 1.9;
+    @media (max-width: 640px) {
+      .hero-inner {
+        padding-bottom: 2.6rem;
       }
 
-      .hero-menu .sep {
-        margin: 0 0.28rem;
+      .menu {
+        gap: 0.55rem;
+      }
+
+      .menu a {
+        font-size: 0.98rem;
       }
     }
   </style>
@@ -131,23 +163,23 @@
 <body>
   <main class="hero">
     <div class="hero-inner">
-      <div class="name">DipStories</div>
+      <div class="left">
+        <div class="name">DipStories</div>
+        <h1>Multidisciplinary approach to your creative needs</h1>
+        <p class="intro">
+          Photography, graphic design, landscape architecture, and research shaped through
+          atmosphere, story, and stillness.
+        </p>
+      </div>
 
-      <h1>Multidisciplinary approach to your creative needs</h1>
-
-      <p class="intro">
-        Photography, graphic design, landscape architecture, and research shaped through
-        atmosphere, story, and stillness.
-      </p>
-
-      <nav class="hero-menu" aria-label="Main navigation">
-        <a href="about.html">About</a>
-        <span class="sep">|</span>
-        <a href="services.html">Services</a>
-        <span class="sep">|</span>
-        <a href="work.html">Selected Work</a>
-        <span class="sep">→</span>
-        <a href="contact.html">Write to me</a>
+      <nav class="right" aria-label="Main navigation">
+        <div class="menu-label">Enter</div>
+        <div class="menu">
+          <a href="about.html"><span>01</span>About</a>
+          <a href="services.html"><span>02</span>Services</a>
+          <a href="work.html"><span>03</span>Selected Work</a>
+          <a href="contact.html"><span>04</span>Write to me</a>
+        </div>
       </nav>
     </div>
   </main>
