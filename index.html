@@ -7,19 +7,22 @@
   <meta name="description" content="DipStories — photography, writing, and design." />
   <style>
     :root {
-      --bg: #eee7dc;
-      --surface: rgba(239, 231, 219, 0.88);
-      --text: #f8f4ee;
-      --text-dark: #2f261f;
-      --muted: #d8d1c7;
-      --muted-dark: #6e6258;
-      --line: rgba(255, 255, 255, 0.16);
-      --line-dark: #d8ccbe;
-      --accent: #d8c29d;
+      --bg: #e9e2d7;
+      --surface: #f3ede4;
+      --text-dark: #2b241e;
+      --muted-dark: #6f6458;
+      --line-dark: rgba(60, 48, 38, 0.14);
+      --hero-text: #f5f1ea;
+      --hero-muted: rgba(245, 241, 234, 0.82);
+      --accent: #c8b28d;
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -31,69 +34,83 @@
     }
 
     .container {
-      width: min(960px, 90%);
+      width: min(1080px, 90%);
       margin: 0 auto;
     }
 
     .hero {
+      position: relative;
       min-height: 100vh;
       display: flex;
-      align-items: end;
+      align-items: flex-end;
       background:
-        linear-gradient(rgba(20, 24, 18, 0.35), rgba(20, 24, 18, 0.58)),
+        linear-gradient(to top, rgba(10, 12, 10, 0.82) 8%, rgba(10, 12, 10, 0.36) 48%, rgba(10, 12, 10, 0.16) 100%),
         url("DSC_0727.jpg") center center / cover no-repeat;
-      color: var(--text);
-      padding: 5rem 0 4rem;
+      color: var(--hero-text);
+      overflow: hidden;
     }
 
-    .hero-panel {
-      max-width: 760px;
-      background: rgba(24, 28, 22, 0.28);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      padding: 2rem;
-      border: 1px solid var(--line);
-      border-radius: 22px;
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.04) 45%, rgba(0, 0, 0, 0.18));
+      pointer-events: none;
     }
 
-    .brand {
-      font-size: 0.9rem;
-      letter-spacing: 0.18em;
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1080px, 90%);
+      margin: 0 auto;
+      padding: 0 0 4rem;
+    }
+
+    .eyebrow {
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
+      color: var(--hero-muted);
+      margin-bottom: 1rem;
     }
 
     h1, h2, h3 {
       font-weight: normal;
-      margin: 0 0 1rem;
+      margin: 0;
     }
 
     h1 {
-      font-size: clamp(2.7rem, 6vw, 5.2rem);
-      line-height: 1.02;
-      max-width: 9ch;
+      max-width: 8ch;
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
     }
 
-    .intro {
-      max-width: 34rem;
-      font-size: 1.15rem;
-      color: #f1ece3;
+    .hero-text {
       margin-top: 1.25rem;
+      max-width: 34rem;
+      font-size: 1.08rem;
+      color: var(--hero-muted);
+    }
+
+    .hero-note {
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      color: rgba(245, 241, 234, 0.68);
     }
 
     main {
-      background: var(--bg);
+      background: linear-gradient(to bottom, #e3dccf 0%, var(--bg) 140px);
     }
 
     section {
-      padding: 4rem 0;
+      padding: 4.5rem 0;
       border-bottom: 1px solid var(--line-dark);
     }
 
     .section-title {
-      font-size: 0.9rem;
-      letter-spacing: 0.12em;
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--muted-dark);
       margin-bottom: 1.5rem;
@@ -102,37 +119,32 @@
     .services,
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.2rem;
     }
 
     .card {
-      background: var(--surface);
-      padding: 1.5rem;
-      border: 1px solid var(--line-dark);
-      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.28);
+      border: 1px solid rgba(60, 48, 38, 0.12);
+      padding: 1.6rem;
+      border-radius: 6px;
     }
 
     .card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.75rem;
-      color: var(--text-dark);
+      font-size: 1.25rem;
+      margin-bottom: 0.7rem;
     }
 
-    .card p {
-      margin: 0;
-      color: var(--muted-dark);
-    }
-
+    .card p,
     .about-text,
     .contact-text {
-      max-width: 42rem;
       color: var(--muted-dark);
-      font-size: 1.05rem;
+      margin: 0;
+      max-width: 42rem;
     }
 
     a {
-      color: #7b5f3f;
+      color: #6d5439;
       text-decoration: none;
     }
 
@@ -143,100 +155,99 @@
     footer {
       padding: 2rem 0 4rem;
       color: var(--muted-dark);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
     }
 
-    @media (max-width: 640px) {
-      .hero {
-        min-height: 82vh;
-        padding: 2rem 0 2.5rem;
-        align-items: end;
+    @media (max-width: 700px) {
+      .hero-inner {
+        padding-bottom: 2.5rem;
       }
 
-      .hero-panel {
-        padding: 1.25rem;
-        border-radius: 18px;
+      h1 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+      }
+
+      .hero-text {
+        font-size: 1rem;
       }
 
       section {
-        padding: 3rem 0;
+        padding: 3.2rem 0;
       }
     }
   </style>
 </head>
 <body>
   <header class="hero">
-    <div class="container">
-      <div class="hero-panel">
-        <div class="brand">DipStories</div>
-        <h1>Multidisciplinary approach to your creative needs</h1>
-        <p class="intro">
-          A calm, thoughtful space for photography, writing, and design —
-          shaped through story, atmosphere, and detail.
-        </p>
-      </div>
+    <div class="hero-inner">
+      <div class="eyebrow">DipStories</div>
+      <h1>Multidisciplinary approach to your creative needs</h1>
+      <p class="hero-text">
+        Photography, writing, and design shaped through atmosphere, story, and stillness.
+      </p>
+      <p class="hero-note">For brands, people, and projects that need a quieter visual language.</p>
     </div>
   </header>
 
-  <main class="container">
-    <section>
-      <div class="section-title">Services</div>
-      <div class="services">
-        <div class="card">
-          <h3>Photography</h3>
-          <p>Visual storytelling with attention to mood, composition, and quiet detail.</p>
+  <main>
+    <div class="container">
+      <section>
+        <div class="section-title">Services</div>
+        <div class="services">
+          <div class="card">
+            <h3>Photography</h3>
+            <p>Images that observe mood, detail, and environment with sensitivity.</p>
+          </div>
+          <div class="card">
+            <h3>Writing</h3>
+            <p>Texts that balance clarity with feeling, from reflective pieces to brand narratives.</p>
+          </div>
+          <div class="card">
+            <h3>Design</h3>
+            <p>Visual worlds shaped with restraint, texture, rhythm, and a sense of place.</p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Writing</h3>
-          <p>Clear and evocative words for essays, creative texts, and thoughtful communication.</p>
-        </div>
-        <div class="card">
-          <h3>Design</h3>
-          <p>Intentional visual work across layout, identity, and digital storytelling.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <div class="section-title">Selected work</div>
-      <div class="projects">
-        <div class="card">
-          <h3>Project One</h3>
-          <p>A visual or written project presented with a short, poetic description.</p>
+      <section>
+        <div class="section-title">Selected work</div>
+        <div class="projects">
+          <div class="card">
+            <h3>Project One</h3>
+            <p>A cinematic story, visual essay, or client collaboration can live here.</p>
+          </div>
+          <div class="card">
+            <h3>Project Two</h3>
+            <p>A quieter case study, series, or written piece with a short atmospheric description.</p>
+          </div>
+          <div class="card">
+            <h3>Project Three</h3>
+            <p>A place for multidisciplinary work that moves between image, text, and design.</p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Project Two</h3>
-          <p>A portfolio feature that can later link to a fuller case study or post.</p>
-        </div>
-        <div class="card">
-          <h3>Project Three</h3>
-          <p>A quiet space for selected work, client collaborations, or personal stories.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <div class="section-title">About</div>
-      <p class="about-text">
-        DipStories brings together different creative practices through a gentle,
-        multidisciplinary lens. The focus is on making work that feels clear,
-        atmospheric, and human.
-      </p>
-    </section>
+      <section>
+        <div class="section-title">About</div>
+        <p class="about-text">
+          DipStories is a multidisciplinary creative practice rooted in careful observation,
+          atmosphere, and storytelling. The work moves between photography, writing, and design
+          to create experiences that feel grounded, evocative, and quietly memorable.
+        </p>
+      </section>
 
-    <section>
-      <div class="section-title">Contact</div>
-      <p class="contact-text">
-        For collaborations, commissions, or inquiries, email
-        <a href="mailto:youremail@example.com">youremail@example.com</a>.
-      </p>
-    </section>
+      <section>
+        <div class="section-title">Contact</div>
+        <p class="contact-text">
+          For collaborations, commissions, or inquiries, email
+          <a href="mailto:youremail@example.com">youremail@example.com</a>.
+        </p>
+      </section>
+    </div>
   </main>
 
   <footer>
-    <div class="container">
-      DipStories © 2026
-    </div>
+    <div class="container">DipStories © 2026</div>
   </footer>
 </body>
 </html>
