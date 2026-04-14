@@ -18,11 +18,11 @@
       --muted: rgba(244,239,232,0.76);
       --soft: rgba(244,239,232,0.54);
       --line: rgba(244,239,232,0.26);
-      --card: rgba(255,255,255,0.04);
     }
 
     * { box-sizing: border-box; }
     html, body { margin: 0; min-height: 100%; }
+
     body {
       font-family: "Satoshi", Arial, sans-serif;
       background:
@@ -73,8 +73,14 @@
       margin-top: 0.8rem;
     }
 
-    .nav a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
-    .sep { color: var(--soft); }
+    .nav a:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+
+    .sep {
+      color: var(--soft);
+    }
 
     .path-zone {
       margin-top: 1rem;
@@ -96,10 +102,7 @@
 
     .content {
       margin-top: 2.6rem;
-      display: grid;
-      grid-template-columns: 1fr 0.95fr;
-      gap: 2rem;
-      align-items: start;
+      max-width: 42rem;
     }
 
     h1 {
@@ -120,65 +123,28 @@
     }
 
     .contact-block {
-      margin-top: 1.5rem;
+      margin-top: 1.7rem;
+      display: grid;
+      gap: 0.8rem;
       color: var(--muted);
       line-height: 1.8;
+      font-size: 1rem;
     }
 
     .contact-block a {
       color: var(--text);
       border-bottom: 1px solid rgba(244,239,232,0.34);
-    }
-
-    .form {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 1.3rem;
-      backdrop-filter: blur(8px);
-    }
-
-    .field {
-      margin-bottom: 1rem;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 0.45rem;
-      font-size: 0.88rem;
-      color: var(--soft);
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 0.9rem 0;
-      border: 0;
-      border-bottom: 1px solid rgba(255,255,255,0.18);
-      background: transparent;
-      color: var(--text);
-      font: inherit;
-      outline: none;
-    }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    button {
-      margin-top: 0.6rem;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      color: var(--text);
-      font: inherit;
-      cursor: pointer;
-      border-bottom: 1px solid rgba(244,239,232,0.38);
+      width: fit-content;
     }
 
     @media (max-width: 860px) {
-      .topbar { flex-direction: column; }
-      .nav { justify-content: flex-start; }
-      .content { grid-template-columns: 1fr; }
+      .topbar {
+        flex-direction: column;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
     }
   </style>
 </head>
@@ -208,37 +174,27 @@
     </div>
 
     <section class="content">
-      <div>
-        <h1>Write to me</h1>
-        <p class="lead">
-          For collaborations, commissions, design work, photography, or research-related
-          inquiries, you can reach out here.
-        </p>
+      <h1>Write to me</h1>
 
-        <div class="contact-block">
-          <div>Email: <a href="mailto:hello@example.com">hello@example.com</a></div>
-          <div><a href="https://www.instagram.com/_dipstories_/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+      <p class="lead">
+        For collaborations, commissions, design work, photography, or research-related
+        inquiries, you can reach out here.
+      </p>
+
+      <div class="contact-block">
+        <div>
+          Email:
+          <a href="mailto:dipeppa@outlook.com">dipeppa@outlook.com</a>
+        </div>
+
+        <div>
+          <a href="https://www.instagram.com/_dipstories_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+
+        <div>
+          <a href="https://www.linkedin.com/in/dimitrapeppa/" target="_blank" rel="noopener noreferrer">Dimitra Peppa | LinkedIn</a>
         </div>
       </div>
-
-      <form class="form">
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" type="text" name="name">
-        </div>
-
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" type="email" name="email">
-        </div>
-
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message"></textarea>
-        </div>
-
-        <button type="submit">Send message</button>
-      </form>
     </section>
   </main>
 </body>
